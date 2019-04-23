@@ -34,15 +34,12 @@ RUN mkdir -p libeni \
 
 WORKDIR $GOPATH/src/github.com/CyberMiles/travis
 RUN ENI_LIB=$LIBENI_PATH make build
+RUN make install
 
 WORKDIR /app
 ENV ENI_LIBRARY_PATH=/app/lib
 ENV LD_LIBRARY_PATH=/app/lib
 
-# add the binary
-# COPY --from=build-env /go/bin/travis .
-# COPY --from=build-env /app/lib/* $ENI_LIBRARY_PATH/
-
 EXPOSE 8545 26656 26657
 
-ENTRYPOINT ["./travis"]
+ENTRYPOINT ["/go/bin/travis"]
