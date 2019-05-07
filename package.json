@@ -1,0 +1,24 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "Configurations, tests, and build scripts to build the entire system into Docker images",
+  "main": "genesis_generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/second-state/devops.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/second-state/devops/issues"
+  },
+  "homepage": "https://github.com/second-state/devops#readme",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "inquirer": "^6.3.1",
+    "jsonfile": "^5.0.0"
+  }
+}
