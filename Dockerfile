@@ -22,17 +22,17 @@ WORKDIR $GOPATH
 
 
 ARG branch=develop
-RUN git clone -b $branch https://github.com/CyberMiles/travis.git --recursive --depth 1 $GOPATH/src/github.com/CyberMiles/travis
+RUN git clone -b $branch https://github.com/second-state/devchain.git --recursive --depth 1 $GOPATH/src/github.com/second-state/devchain
 
 # libeni
 ENV LIBENI_PATH=/app/lib
 RUN mkdir -p libeni \
-  && wget https://github.com/CyberMiles/libeni/releases/download/v1.3.4/libeni-1.3.4_ubuntu-16.04.tgz -P libeni \
+  && wget https://github.com/second-state/libeni/releases/download/v1.3.6/libeni-1.3.6_ubuntu-16.04.tgz -P libeni \
   && tar zxvf libeni/*.tgz -C libeni \
   && mkdir -p $LIBENI_PATH && cp libeni/*/lib/* $LIBENI_PATH
 
 
-WORKDIR $GOPATH/src/github.com/CyberMiles/travis
+WORKDIR $GOPATH/src/github.com/second-state/devchain
 RUN ENI_LIB=$LIBENI_PATH make build
 RUN make install
 
@@ -42,4 +42,4 @@ ENV LD_LIBRARY_PATH=/app/lib
 
 EXPOSE 8545 26656 26657
 
-ENTRYPOINT ["/go/bin/travis"]
+ENTRYPOINT ["/go/bin/devchain"]
