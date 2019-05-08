@@ -7,6 +7,7 @@ docker build -t second-state/devchain:latest .
 ## Create Devchain container
 
 mkdir $(your_local_path)
+
 docker run --rm -v $(your_local_path):/devchain second-state/
 
 
