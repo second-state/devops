@@ -17,6 +17,7 @@ devchain node init --home /devchain
 
 
 ## Update genesis parameters
+npm install
 node genesis_generator.js --from-genesis $(your_local_path)/config/genesis.json
 
 ## Start Devchain node with custom parameters
